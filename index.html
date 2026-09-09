@@ -150,9 +150,21 @@ main{max-width:1120px;margin:0 auto;padding:24px 16px 140px}
 .dcard .focus{font-family:var(--disp);font-weight:600;font-size:1.1rem;line-height:1.2;margin-bottom:4px}
 .dcard .sub{color:var(--dim);font-size:.7rem}
 .dcard .min{margin-top:8px;font-size:.7rem;letter-spacing:.12em;color:var(--gold);font-weight:700}
-.dcard.today{border-color:var(--gold);background:linear-gradient(180deg,rgba(201,164,76,.16),var(--panel))}
-.dcard.today::after{content:'СЕГОДНЯ';position:absolute;top:-8px;right:8px;font-size:7px;font-weight:800;
-  letter-spacing:.2em;background:var(--gold);color:#fffaf0;padding:2px 6px;border-radius:100px}
+.dcard.today{border:2px solid var(--gold);background:linear-gradient(180deg,rgba(201,164,76,.12),var(--panel))}
+.dcard.today::after{
+  content:'СЕГОДНЯ';
+  position:absolute;
+  right:12px;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.15em;
+  background:var(--gold);
+  color:#ffffff;
+  padding:4px 10px;
+  border-radius:100px;
+  box-shadow:0 4px 12px rgba(164,128,47,0.4);
+  z-index:2;
+}
 /* Приоритеты */
 .feats{display:grid;grid-template-columns:1fr;gap:0}
 .feat{padding:20px 0;border-top:1px solid var(--line);display:flex;gap:16px}
@@ -399,13 +411,14 @@ footer{text-align:center;padding:20px 10px 120px;color:var(--dim);font-size:10px
   <h3 class="subh reveal">Отметь тренировку</h3>
   <div class="checkcard reveal">
     <h3>Сессия сегодня</h3>
-    <div class="cmeta"><span>ПРОГРЕСС</span><span id="wlabel">0 / 4</span></div>
+    <div class="cmeta"><span>ПРОГРЕСС</span><span id="wlabel">0 / 5</span></div>
     <div class="cbar"><i id="wbar"></i></div>
     <div id="wlist">
       <button class="chk"><span class="box"></span><span class="txt">Разминка — 5 минут</span></button>
       <button class="chk"><span class="box"></span><span class="txt">База: 4-5 упражнений</span></button>
       <button class="chk"><span class="box"></span><span class="txt">Растяжка и осанка</span></button>
       <button class="chk"><span class="box"></span><span class="txt">Тренировка шеи</span></button>
+      <button class="chk"><span class="box"></span><span class="txt">Пройти 15 000 шагов</span></button>
     </div>
   </div>
 </section>
