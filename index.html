@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>ВОСХОД · луксмаксинг</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,14 +16,11 @@
   --shadow:0 12px 32px rgba(112,90,44,.10);
   --disp:'Cormorant',serif; --ui:'Manrope',sans-serif; --rom:'Cinzel',serif;
 }
-*{margin:0;padding:0;box-sizing:border-box}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;line-height:1.6;overflow-x:hidden}
 ::selection{background:var(--goldb);color:#241c08}
-::-webkit-scrollbar{width:10px}
-::-webkit-scrollbar-track{background:#efe9da}
-::-webkit-scrollbar-thumb{background:#d8c9a2;border-radius:6px}
-::-webkit-scrollbar-thumb:hover{background:var(--goldb)}
+::-webkit-scrollbar{width:0;height:0}
 /* ---------- ФОН ---------- */
 .bg{position:fixed;inset:0;z-index:-2;pointer-events:none;
   background:
@@ -69,240 +66,187 @@ body{background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:16px;
 #app{opacity:0;transform:translateY(14px);transition:opacity .9s ease .15s,transform .9s ease .15s}
 #app.ready{opacity:1;transform:none}
 header{position:sticky;top:0;z-index:40;border-bottom:1px solid var(--line);
-  background:rgba(246,242,231,.86);backdrop-filter:blur(12px)}
-.hwrap{max-width:1120px;margin:0 auto;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.brand{display:flex;align-items:baseline;gap:12px}
-.brand .star{color:var(--gold);animation:ornspin 9s linear infinite;display:inline-block}
-.brand h1{font-family:var(--disp);font-weight:700;font-size:1.7rem;letter-spacing:.14em;line-height:1}
-.brand small{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mut)}
-.hright{display:flex;align-items:center;gap:14px}
-.hdate{font-size:12px;color:var(--mut);text-transform:capitalize}
-.streak{font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--gold);
-  border:1px solid var(--line2);padding:6px 12px;border-radius:100px;background:var(--gold-soft)}
-main{max-width:1120px;margin:0 auto;padding:44px 24px 150px}
+  background:rgba(246,242,231,.92);backdrop-filter:blur(12px)}
+.hwrap{max-width:1120px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:baseline;gap:8px}
+.brand .star{color:var(--gold);animation:ornspin 9s linear infinite;display:inline-block;font-size:1.2em}
+.brand h1{font-family:var(--disp);font-weight:700;font-size:1.4rem;letter-spacing:.1em;line-height:1}
+.brand small{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--mut)}
+.hright{display:flex;align-items:center;gap:10px}
+.hdate{font-size:11px;color:var(--mut);text-transform:capitalize;display:none}
+@media(min-width:400px){.hdate{display:block}}
+.streak{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--gold);
+  border:1px solid var(--line2);padding:4px 10px;border-radius:100px;background:var(--gold-soft)}
+main{max-width:1120px;margin:0 auto;padding:24px 16px 140px}
 .panel{display:none;position:relative}
 .panel.active{display:block;animation:panelin .5s ease}
 @keyframes panelin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
-.phead{position:relative;margin-bottom:44px;max-width:760px}
-.chnum{position:absolute;top:-70px;right:-30px;font-family:var(--disp);font-weight:600;
-  font-size:clamp(9rem,22vw,17rem);line-height:1;color:rgba(164,128,47,.06);
+.phead{position:relative;margin-bottom:32px;max-width:760px}
+.chnum{position:absolute;top:-60px;right:-20px;font-family:var(--disp);font-weight:600;
+  font-size:clamp(6rem,22vw,17rem);line-height:1;color:rgba(164,128,47,.06);
   -webkit-text-stroke:1px rgba(164,128,47,.12);pointer-events:none;user-select:none}
-.kicker{font-size:11px;font-weight:800;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
-.phead h2{font-family:var(--disp);font-weight:600;font-size:clamp(2.1rem,4.6vw,3.4rem);line-height:1.08;margin-bottom:16px}
+.kicker{font-size:10px;font-weight:800;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.phead h2{font-family:var(--disp);font-weight:600;font-size:clamp(1.8rem,5vw,3.4rem);line-height:1.1;margin-bottom:12px}
 .phead h2 em{font-style:italic;color:var(--gold)}
-.lede{color:var(--mut);font-size:1.05rem;max-width:620px}
-.subh{font-family:var(--disp);font-weight:600;font-size:1.7rem;margin:52px 0 20px;display:flex;align-items:center;gap:14px}
+.lede{color:var(--mut);font-size:1rem;max-width:620px}
+.subh{font-family:var(--disp);font-weight:600;font-size:1.5rem;margin:40px 0 16px;display:flex;align-items:center;gap:10px}
 .subh::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--line2),transparent)}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-.chip{font-size:12px;font-weight:600;letter-spacing:.08em;color:#7c621f;
-  border:1px solid var(--line);border-radius:100px;padding:8px 16px;background:var(--gold-soft);transition:.3s}
-.chip:hover{border-color:var(--line2);transform:translateY(-2px);box-shadow:0 8px 20px rgba(112,90,44,.14)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chip{font-size:11px;font-weight:600;letter-spacing:.05em;color:#7c621f;
+  border:1px solid var(--line);border-radius:100px;padding:6px 12px;background:var(--gold-soft);transition:.3s}
 /* Еда */
-.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
 .food{position:relative;background:linear-gradient(180deg,var(--panel),var(--panel2));
-  border:1px solid var(--line);border-radius:14px;padding:24px 22px 20px;overflow:hidden;
+  border:1px solid var(--line);border-radius:12px;padding:20px 18px 18px;overflow:hidden;
   transition:transform .35s,border-color .35s,box-shadow .35s}
-.food:hover{transform:translateY(-4px);border-color:var(--line2);box-shadow:var(--shadow)}
 .food.big{grid-column:span 2}
-.food .ftag{position:absolute;top:16px;right:16px;font-size:9px;font-weight:800;letter-spacing:.24em;
-  color:var(--gold);border:1px solid var(--line2);padding:4px 9px;border-radius:100px;background:rgba(255,253,248,.7)}
-.food .fname{font-family:var(--disp);font-weight:600;font-size:1.45rem;margin-bottom:6px}
+.food .ftag{position:absolute;top:12px;right:12px;font-size:8px;font-weight:800;letter-spacing:.24em;
+  color:var(--gold);border:1px solid var(--line2);padding:3px 8px;border-radius:100px;background:rgba(255,253,248,.9)}
+.food .fname{font-family:var(--disp);font-weight:600;font-size:1.3rem;margin-bottom:4px}
 .food .fdesc{color:var(--mut);font-size:.9rem}
-.food.big .fdesc{max-width:52ch}
-@media(max-width:640px){.food.big{grid-column:span 1}}
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:760px){.duo{grid-template-columns:1fr}}
-.duocard{border:1px solid var(--line);border-radius:14px;padding:26px;background:var(--panel)}
-.duocard h3{font-family:var(--disp);font-size:1.5rem;font-weight:600;margin-bottom:6px}
-.duocard .dn{font-size:11px;letter-spacing:.3em;text-transform:uppercase;margin-bottom:16px;display:block}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.duocard{border:1px solid var(--line);border-radius:12px;padding:20px;background:var(--panel)}
+.duocard h3{font-family:var(--disp);font-size:1.3rem;font-weight:600;margin-bottom:4px}
+.duocard .dn{font-size:10px;letter-spacing:.3em;text-transform:uppercase;margin-bottom:12px;display:block}
 .duocard.bad .dn{color:var(--red)}
 .duocard.good .dn{color:var(--gold)}
-.lrow{display:flex;gap:14px;align-items:flex-start;padding:13px 6px;border-bottom:1px solid rgba(140,110,50,.12);
-  transition:padding-left .3s,background .3s;border-radius:6px}
+.lrow{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid rgba(140,110,50,.1)}
 .lrow:last-child{border-bottom:none}
-.lrow:hover{padding-left:14px;background:var(--gold-soft)}
-.lrow .m{flex:none;width:20px;text-align:center;font-weight:800}
+.lrow .m{flex:none;width:16px;text-align:center;font-weight:800;font-size:12px}
 .duocard.bad .m{color:var(--red)}
 .duocard.good .m{color:var(--gold)}
-.lrow b{font-weight:700;font-size:.95rem;display:block}
-.lrow span{color:var(--mut);font-size:.85rem}
+.lrow b{font-weight:700;font-size:.9rem;display:block}
+.lrow span{color:var(--mut);font-size:.8rem}
 /* Вода */
-.water{border:1px solid var(--line);border-radius:16px;padding:28px;background:linear-gradient(120deg,var(--panel),var(--panel2));box-shadow:var(--shadow)}
-.wtop{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-.wtop h3{font-family:var(--disp);font-size:1.6rem;font-weight:600}
-.wcount{font-family:var(--disp);font-size:1.6rem;color:var(--gold);font-style:italic}
-.cups{display:flex;gap:12px;flex-wrap:wrap}
-.cup{position:relative;width:34px;height:52px;border:1px solid var(--line2);border-radius:6px 6px 12px 12px;
+.water{border:1px solid var(--line);border-radius:14px;padding:20px;background:linear-gradient(120deg,var(--panel),var(--panel2));box-shadow:var(--shadow)}
+.wtop{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.wtop h3{font-family:var(--disp);font-size:1.4rem;font-weight:600}
+.wcount{font-family:var(--disp);font-size:1.4rem;color:var(--gold);font-style:italic}
+.cups{display:flex;gap:10px;flex-wrap:wrap}
+.cup{position:relative;width:32px;height:48px;border:1px solid var(--line2);border-radius:6px 6px 10px 10px;
   background:rgba(255,253,248,.6);cursor:pointer;overflow:hidden;transition:border-color .3s,transform .2s}
-.cup:hover{transform:translateY(-3px);border-color:var(--gold)}
 .cup .fill{position:absolute;left:0;right:0;bottom:0;height:0;background:linear-gradient(180deg,#e8cf8b,var(--goldb));
   transition:height .45s cubic-bezier(.3,.9,.3,1)}
 .cup.on .fill{height:100%}
-.cup.on{border-color:var(--gold);box-shadow:0 6px 16px rgba(176,138,60,.25)}
-.whint{margin-top:18px;color:var(--dim);font-family:var(--disp);font-style:italic;font-size:1.05rem}
+.cup.on{border-color:var(--gold);box-shadow:0 4px 12px rgba(176,138,60,.25)}
+.whint{margin-top:14px;color:var(--dim);font-family:var(--disp);font-style:italic;font-size:.95rem}
 /* Меню дня */
-.menu{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel)}
-.mrow{display:grid;grid-template-columns:130px 1fr;gap:18px;align-items:baseline;padding:18px 22px;
-  border-bottom:1px solid rgba(140,110,50,.12);transition:background .3s,padding-left .3s}
+.menu{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel)}
+.mrow{display:grid;grid-template-columns:100px 1fr;gap:12px;align-items:baseline;padding:14px 16px;
+  border-bottom:1px solid rgba(140,110,50,.12)}
 .mrow:last-child{border-bottom:none}
-.mrow:hover{background:var(--gold-soft);padding-left:30px}
-.mrow .t{font-family:var(--disp);font-style:italic;font-weight:500;color:var(--gold);font-size:1.2rem}
-.mrow .d{color:var(--ink);font-size:.95rem}
-.mrule{margin-top:16px;color:#7c621f;font-size:.9rem;font-weight:600;letter-spacing:.04em}
+.mrow .t{font-family:var(--disp);font-style:italic;font-weight:500;color:var(--gold);font-size:1.1rem}
+.mrow .d{color:var(--ink);font-size:.9rem}
+.mrule{margin-top:12px;color:#7c621f;font-size:.85rem;font-weight:600;letter-spacing:.04em}
 .mrule::before{content:'✦ ';color:var(--gold)}
-@media(max-width:520px){.mrow{grid-template-columns:1fr;gap:4px}}
 /* Неделя */
-.week{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
-@media(max-width:900px){.week{display:flex;overflow-x:auto;padding-bottom:8px;scroll-snap-type:x mandatory}
-  .week::-webkit-scrollbar{height:6px}}
-.dcard{position:relative;border:1px solid var(--line);border-radius:12px;padding:18px 14px;min-width:128px;
+.week{display:flex;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x mandatory;gap:10px;margin-left:-4px;padding-left:4px}
+.dcard{position:relative;border:1px solid var(--line);border-radius:12px;padding:16px 12px;min-width:140px;flex:0 0 auto;
   background:var(--panel);scroll-snap-align:start;transition:transform .3s,border-color .3s,box-shadow .3s}
-.dcard:hover{transform:translateY(-4px);border-color:var(--line2);box-shadow:var(--shadow)}
-.dcard .day{font-family:var(--rom);font-size:.85rem;letter-spacing:.2em;color:var(--mut);margin-bottom:8px}
-.dcard .focus{font-family:var(--disp);font-weight:600;font-size:1.15rem;line-height:1.2;margin-bottom:6px}
-.dcard .sub{color:var(--dim);font-size:.75rem}
-.dcard .min{margin-top:10px;font-size:.72rem;letter-spacing:.12em;color:var(--gold);font-weight:700}
-.dcard.today{border-color:var(--gold);background:linear-gradient(180deg,rgba(201,164,76,.16),var(--panel));
-  box-shadow:0 10px 26px rgba(176,138,60,.20)}
-.dcard.today::after{content:'СЕГОДНЯ';position:absolute;top:-9px;right:10px;font-size:8px;font-weight:800;
-  letter-spacing:.2em;background:var(--gold);color:#fffaf0;padding:3px 8px;border-radius:100px}
+.dcard:hover{transform:translateY(-2px);border-color:var(--line2)}
+.dcard .day{font-family:var(--rom);font-size:.8rem;letter-spacing:.2em;color:var(--mut);margin-bottom:6px}
+.dcard .focus{font-family:var(--disp);font-weight:600;font-size:1.1rem;line-height:1.2;margin-bottom:4px}
+.dcard .sub{color:var(--dim);font-size:.7rem}
+.dcard .min{margin-top:8px;font-size:.7rem;letter-spacing:.12em;color:var(--gold);font-weight:700}
+.dcard.today{border-color:var(--gold);background:linear-gradient(180deg,rgba(201,164,76,.16),var(--panel))}
+.dcard.today::after{content:'СЕГОДНЯ';position:absolute;top:-8px;right:8px;font-size:7px;font-weight:800;
+  letter-spacing:.2em;background:var(--gold);color:#fffaf0;padding:2px 6px;border-radius:100px}
 /* Приоритеты */
-.feats{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
-@media(max-width:760px){.feats{grid-template-columns:1fr}}
-.feat{padding:26px 0;border-top:1px solid var(--line);display:flex;gap:22px}
-.feat .rn{font-family:var(--rom);font-size:1.5rem;color:var(--dim);transition:color .3s;min-width:34px}
-.feat:hover .rn{color:var(--gold)}
-.feat h4{font-family:var(--disp);font-size:1.35rem;font-weight:600;margin-bottom:4px}
+.feats{display:grid;grid-template-columns:1fr;gap:0}
+.feat{padding:20px 0;border-top:1px solid var(--line);display:flex;gap:16px}
+.feat .rn{font-family:var(--rom);font-size:1.3rem;color:var(--dim);min-width:28px}
+.feat h4{font-family:var(--disp);font-size:1.2rem;font-weight:600;margin-bottom:2px}
 .feat p{color:var(--mut);font-size:.9rem}
-.feat .ex{margin-top:8px;font-size:.78rem;color:var(--dim)}
+.feat .ex{margin-top:6px;font-size:.75rem;color:var(--dim)}
 .feat .ex b{color:var(--gold);font-weight:700}
 /* Чек-листы */
-.checkcard{border:1px solid var(--line);border-radius:16px;padding:28px;background:linear-gradient(150deg,var(--panel),var(--panel2));box-shadow:var(--shadow)}
-.checkcard h3{font-family:var(--disp);font-size:1.6rem;font-weight:600;margin-bottom:4px}
-.cbar{height:4px;border-radius:100px;background:rgba(164,128,47,.15);margin:18px 0 22px;overflow:hidden}
+.checkcard{border:1px solid var(--line);border-radius:14px;padding:20px;background:linear-gradient(150deg,var(--panel),var(--panel2));box-shadow:var(--shadow)}
+.checkcard h3{font-family:var(--disp);font-size:1.4rem;font-weight:600;margin-bottom:2px}
+.cbar{height:4px;border-radius:100px;background:rgba(164,128,47,.15);margin:14px 0 18px;overflow:hidden}
 .cbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--goldb));
   border-radius:100px;transition:width .6s cubic-bezier(.3,.9,.3,1)}
-.cmeta{display:flex;justify-content:space-between;font-size:12px;color:var(--mut);letter-spacing:.1em;margin-bottom:6px}
-.chk{display:flex;align-items:center;gap:16px;width:100%;text-align:left;background:none;border:none;
-  border-bottom:1px solid rgba(140,110,50,.12);padding:15px 6px;color:var(--ink);font-family:var(--ui);
+.cmeta{display:flex;justify-content:space-between;font-size:11px;color:var(--mut);letter-spacing:.1em;margin-bottom:4px}
+.chk{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:none;border:none;
+  border-bottom:1px solid rgba(140,110,50,.12);padding:14px 4px;color:var(--ink);font-family:var(--ui);
   font-size:.95rem;cursor:pointer;transition:padding-left .3s,background .3s;border-radius:6px}
 .chk:last-child{border-bottom:none}
-.chk:hover{padding-left:14px;background:var(--gold-soft)}
-.chk .box{flex:none;width:22px;height:22px;border:1px solid var(--line2);border-radius:6px;position:relative;
+.chk:hover{padding-left:10px;background:var(--gold-soft)}
+.chk .box{flex:none;width:24px;height:24px;border:1px solid var(--line2);border-radius:6px;position:relative;
   transition:.3s;background:#fffdf8}
 .chk .box::after{content:'✓';position:absolute;inset:0;display:grid;place-items:center;color:#fffaf0;
   font-weight:800;font-size:14px;opacity:0;transform:scale(.4);transition:.25s}
-.chk.done .box{background:var(--gold);border-color:var(--gold);box-shadow:0 4px 12px rgba(176,138,60,.35)}
+.chk.done .box{background:var(--gold);border-color:var(--gold)}
 .chk.done .box::after{opacity:1;transform:scale(1)}
 .chk.done .txt{color:var(--dim);text-decoration:line-through;text-decoration-color:rgba(164,128,47,.55)}
 /* Ритуал + кольцо */
-.ritual{display:grid;grid-template-columns:170px 1fr;gap:30px;align-items:start}
-@media(max-width:680px){.ritual{grid-template-columns:1fr}}
-.ringwrap{position:relative;width:150px;height:150px;display:grid;place-items:center}
-.ring{width:150px;height:150px}
+.ritual{display:grid;grid-template-columns:1fr;gap:24px;align-items:start}
+.ringwrap{position:relative;width:120px;height:120px;display:grid;place-items:center;margin:0 auto}
+.ring{width:120px;height:120px}
 .rbg,.rfg{fill:none;stroke-width:5}
 .rbg{stroke:rgba(164,128,47,.15)}
-.rfg{stroke:var(--gold);stroke-linecap:round;stroke-dasharray:408.4;stroke-dashoffset:408.4;
-  transition:stroke-dashoffset .7s cubic-bezier(.3,.9,.3,1);filter:drop-shadow(0 0 4px rgba(176,138,60,.35))}
-.rpct{position:absolute;font-family:var(--disp);font-weight:600;font-size:2rem;color:var(--ink)}
-.rpct small{display:block;font-family:var(--ui);font-size:9px;letter-spacing:.3em;color:var(--mut);text-align:center;font-weight:700}
+.rfg{stroke:var(--gold);stroke-linecap:round;stroke-dasharray:377;stroke-dashoffset:377;
+  transition:stroke-dashoffset .7s cubic-bezier(.3,.9,.3,1)}
+.rpct{position:absolute;font-family:var(--disp);font-weight:600;font-size:1.6rem;color:var(--ink)}
+.rpct small{display:block;font-family:var(--ui);font-size:8px;letter-spacing:.3em;color:var(--mut);text-align:center;font-weight:700}
 /* Утро/вечер */
-.seg{position:relative;display:inline-flex;border:1px solid var(--line2);border-radius:100px;overflow:hidden;margin-bottom:26px;background:#fffdf8}
+.seg{position:relative;display:inline-flex;border:1px solid var(--line2);border-radius:100px;overflow:hidden;margin-bottom:20px;background:#fffdf8}
 .seg button{position:relative;z-index:2;background:none;border:none;color:var(--mut);font-family:var(--ui);
-  font-weight:800;font-size:12px;letter-spacing:.24em;padding:12px 30px;cursor:pointer;transition:color .3s;text-transform:uppercase}
+  font-weight:800;font-size:11px;letter-spacing:.24em;padding:10px 24px;cursor:pointer;transition:color .3s;text-transform:uppercase}
 .seg button.on{color:#fffaf0}
 .seg .thumb{position:absolute;z-index:1;top:3px;bottom:3px;width:calc(50% - 3px);border-radius:100px;
   background:linear-gradient(120deg,var(--gold),var(--goldb));transition:transform .45s cubic-bezier(.3,.9,.3,1)}
 .routine{display:none}
 .routine.on{display:block;animation:panelin .45s ease}
-.step{display:flex;gap:18px;padding:16px 8px;border-bottom:1px solid rgba(140,110,50,.12);align-items:flex-start;
-  transition:padding-left .3s;border-radius:8px}
-.step:hover{padding-left:16px;background:var(--gold-soft)}
+.step{display:flex;gap:14px;padding:12px 4px;border-bottom:1px solid rgba(140,110,50,.12);align-items:flex-start}
 .step:last-child{border-bottom:none}
-.step .n{flex:none;width:34px;height:34px;border:1px solid var(--line2);border-radius:50%;display:grid;
-  place-items:center;font-family:var(--disp);font-weight:600;color:var(--gold);font-size:1.05rem;background:#fffdf8}
-.step b{display:block;font-size:.98rem}
-.step span{color:var(--mut);font-size:.87rem}
-.practs{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:760px){.practs{grid-template-columns:1fr}}
-.pract{border:1px solid var(--line);border-radius:14px;padding:24px;background:var(--panel);transition:.35s}
-.pract:hover{transform:translateY(-4px);border-color:var(--line2);box-shadow:var(--shadow)}
-.pract h4{font-family:var(--disp);font-weight:600;font-size:1.35rem;margin-bottom:6px}
-.pract h4::before{content:'✦ ';color:var(--gold);font-size:.9rem}
+.step .n{flex:none;width:28px;height:28px;border:1px solid var(--line2);border-radius:50%;display:grid;
+  place-items:center;font-family:var(--disp);font-weight:600;color:var(--gold);font-size:.9rem;background:#fffdf8}
+.step b{display:block;font-size:.95rem}
+.step span{color:var(--mut);font-size:.85rem}
+.practs{display:grid;grid-template-columns:1fr;gap:12px}
+.pract{border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--panel)}
+.pract h4{font-family:var(--disp);font-weight:600;font-size:1.2rem;margin-bottom:4px}
+.pract h4::before{content:'✦ ';color:var(--gold);font-size:.8rem}
 .pract p{color:var(--mut);font-size:.9rem}
-.hgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
-.hair.big{grid-column:span 2}
-@media(max-width:640px){.hair.big{grid-column:span 1}}
+.hgrid{display:grid;grid-template-columns:1fr;gap:12px}
+.food.big{grid-column:span 1}
 /* Аккордеон */
-.acc{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--panel);margin-bottom:10px;transition:border-color .3s}
-.acc:hover{border-color:var(--line2)}
+.acc{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel);margin-bottom:8px}
 .acc-q{width:100%;background:none;border:none;color:var(--ink);font-family:var(--disp);font-weight:600;
-  font-size:1.25rem;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;
-  gap:16px;cursor:pointer;text-align:left}
-.acc-q .pl{flex:none;color:var(--gold);font-family:var(--ui);font-weight:400;font-size:1.4rem;transition:transform .4s;line-height:1}
+  font-size:1.1rem;padding:16px;display:flex;justify-content:space-between;align-items:center;
+  gap:12px;cursor:pointer;text-align:left}
+.acc-q .pl{flex:none;color:var(--gold);font-family:var(--ui);font-weight:400;font-size:1.2rem;transition:transform .4s;line-height:1}
 .acc.open .acc-q .pl{transform:rotate(45deg)}
 .acc-a{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.3,.9,.3,1)}
-.acc-a p{padding:0 24px 22px;color:var(--mut);font-size:.93rem;max-width:70ch}
+.acc-a p{padding:0 16px 18px;color:var(--mut);font-size:.9rem}
 /* Цитата */
-.quote{margin-top:56px;text-align:center;padding:40px 20px;cursor:pointer;user-select:none}
-.quote .qmark{color:var(--gold);font-size:20px;margin-bottom:14px}
-.quote p{font-family:var(--disp);font-style:italic;font-weight:500;font-size:clamp(1.4rem,3vw,2rem);
-  max-width:760px;margin:0 auto 14px;line-height:1.35;transition:opacity .3s}
-.quote .auth{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);transition:opacity .3s}
+.quote{margin-top:40px;text-align:center;padding:30px 10px;cursor:pointer;user-select:none}
+.quote .qmark{color:var(--gold);font-size:18px;margin-bottom:10px}
+.quote p{font-family:var(--disp);font-style:italic;font-weight:500;font-size:1.3rem;
+  max-width:760px;margin:0 auto 10px;line-height:1.35;transition:opacity .3s}
+.quote .auth{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);transition:opacity .3s}
 .quote.qfade p,.quote.qfade .auth{opacity:0}
-.qhint{margin-top:14px;font-size:10px;letter-spacing:.2em;color:var(--dim);text-transform:uppercase}
-footer{text-align:center;padding:30px 20px 130px;color:var(--dim);font-size:11px;letter-spacing:.24em;text-transform:uppercase}
-.disclaimer{max-width:1120px;margin:0 auto;padding:0 24px 20px;color:var(--dim);font-size:11px;text-align:center}
-/* ---------- СЧЁТЧИК ШАГОВ ---------- */
-.steps{display:grid;grid-template-columns:1.25fr 1fr;gap:30px;border:1px solid var(--line);border-radius:16px;
-  padding:28px;background:linear-gradient(120deg,var(--panel),var(--panel2));box-shadow:var(--shadow)}
-@media(max-width:760px){.steps{grid-template-columns:1fr}}
-.st-num{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:18px}
-.st-num b{font-family:var(--disp);font-weight:600;font-size:clamp(3rem,7vw,4.2rem);line-height:1;color:#8c6d2c}
-.st-num small{color:var(--mut);font-size:.85rem;letter-spacing:.06em}
-.st-bar{height:8px;border-radius:100px;background:rgba(164,128,47,.15);overflow:hidden}
-.st-bar i{display:block;height:100%;width:0;border-radius:100px;
-  background:linear-gradient(90deg,var(--gold),var(--goldb));
-  transition:width .5s cubic-bezier(.3,.9,.3,1)}
-.st-meta{display:flex;justify-content:space-between;margin-top:10px;font-size:.85rem;color:var(--mut)}
-.st-status{margin-top:18px;font-family:var(--disp);font-style:italic;font-size:1.05rem;color:var(--dim);transition:color .3s}
-.st-status.live{color:var(--gold)}
-.st-note{margin-top:10px;color:var(--dim);font-size:.78rem}
-.st-right{display:flex;flex-direction:column;gap:12px}
-.addrow{display:flex;gap:10px}
-.sbtn{flex:1;background:#fffdf8;border:1px solid var(--line2);color:#7c621f;font-family:var(--ui);
-  font-weight:800;font-size:13px;letter-spacing:.06em;padding:13px 10px;border-radius:10px;cursor:pointer;transition:.25s}
-.sbtn:hover{background:var(--gold-soft);transform:translateY(-2px);box-shadow:0 6px 16px rgba(112,90,44,.12)}
-.sbtn.ghost{color:var(--dim);border-color:rgba(140,110,50,.22);background:transparent}
-.sbtn.auto{border-color:var(--gold);letter-spacing:.12em}
-.sbtn.auto.on{background:linear-gradient(120deg,var(--gold),var(--goldb));color:#fffaf0;border-color:var(--gold);
-  animation:pulse 1.6s ease-in-out infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(176,138,60,.40)}50%{box-shadow:0 0 22px 4px rgba(176,138,60,.25)}}
-.steps-custom{display:flex;gap:10px}
-.steps-custom input{flex:1;min-width:0;background:#fffdf8;border:1px solid var(--line);border-radius:10px;
-  color:var(--ink);font-family:var(--ui);font-size:14px;padding:12px 14px;outline:none;transition:border-color .25s}
-.steps-custom input:focus{border-color:var(--gold)}
-.steps-custom input::placeholder{color:var(--dim)}
+.qhint{margin-top:10px;font-size:9px;letter-spacing:.2em;color:var(--dim);text-transform:uppercase}
+footer{text-align:center;padding:20px 10px 120px;color:var(--dim);font-size:10px;letter-spacing:.24em;text-transform:uppercase}
+.disclaimer{max-width:1120px;margin:0 auto;padding:0 16px 16px;color:var(--dim);font-size:10px;text-align:center}
 /* Док-навигация */
-.dock{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:50;
-  width:min(580px,calc(100% - 24px));display:grid;grid-template-columns:repeat(4,1fr);
-  background:rgba(255,253,248,.94);border:1px solid var(--line2);border-radius:20px;
-  box-shadow:0 18px 44px rgba(96,78,40,.20)}
+.dock{position:fixed;bottom:12px;left:12px;right:12px;z-index:50;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:rgba(255,253,248,.95);border:1px solid var(--line2);border-radius:16px;
+  box-shadow:0 10px 30px rgba(96,78,40,.15);padding:4px}
 .glider{position:absolute;top:0;bottom:0;width:25%;left:0;transition:left .45s cubic-bezier(.3,.9,.3,1);pointer-events:none}
-.glider i{position:absolute;inset:6px;border-radius:14px;background:rgba(176,138,60,.14);border:1px solid rgba(176,138,60,.35)}
+.glider i{position:absolute;inset:4px;border-radius:12px;background:rgba(176,138,60,.14);border:1px solid rgba(176,138,60,.35)}
 .dockbtn{position:relative;z-index:2;background:none;border:none;cursor:pointer;color:var(--dim);
-  display:flex;flex-direction:column;align-items:center;gap:5px;padding:13px 4px 11px;
-  font-family:var(--ui);font-size:9.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;transition:color .3s}
-.dockbtn svg{width:22px;height:22px;transition:transform .3s}
-.dockbtn:hover{color:var(--mut)}
+  display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px 2px 6px;
+  font-family:var(--ui);font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;transition:color .3s}
+.dockbtn svg{width:20px;height:20px;transition:transform .3s}
 .dockbtn.on{color:var(--gold)}
-.dockbtn.on svg{transform:translateY(-2px) scale(1.12);filter:drop-shadow(0 2px 6px rgba(176,138,60,.4))}
-@media(max-width:420px){.dockbtn{font-size:8.5px;letter-spacing:.08em}}
-.toast{position:fixed;bottom:100px;left:50%;transform:translateX(-50%) translateY(20px);z-index:60;
-  background:#fffdf8;border:1px solid var(--gold);color:#7c621f;padding:12px 26px;border-radius:100px;
-  font-weight:700;font-size:13px;letter-spacing:.14em;opacity:0;pointer-events:none;transition:.4s;
+.dockbtn.on svg{transform:translateY(-2px) scale(1.1)}
+.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(20px);z-index:60;
+  background:#fffdf8;border:1px solid var(--gold);color:#7c621f;padding:10px 20px;border-radius:100px;
+  font-weight:700;font-size:12px;letter-spacing:.14em;opacity:0;pointer-events:none;transition:.4s;
   box-shadow:0 12px 34px rgba(112,90,44,.18);white-space:nowrap}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 @media (prefers-reduced-motion:reduce){
@@ -386,37 +330,35 @@ footer{text-align:center;padding:30px 20px 130px;color:var(--dim);font-size:11px
   <div class="duo" style="margin-top:14px">
     <div class="duocard bad reveal">
       <h3>Исключить</h3><span class="dn">враги эстетики</span>
-      <div class="lrow"><span class="m">✕</span><div><b>Сахар и сиропы</b><span>гликация разрушает коллаген — кожа стареет быстрее</span></div></div>
-      <div class="lrow"><span class="m">✕</span><div><b>Алкоголь</b><span>отёки, тусклый цвет, обезвоживание на трое суток</span></div></div>
-      <div class="lrow"><span class="m">✕</span><div><b>Фастфуд и трансжиры</b><span>воспаления, высыпания, лишний жир</span></div></div>
-      <div class="lrow"><span class="m">✕</span><div><b>Избыток соли</b><span>мешки под глазами и одутловатость по утрам</span></div></div>
-      <div class="lrow"><span class="m">✕</span><div><b>Сладкие напитки</b><span>жидкие калории без единого плюса</span></div></div>
+      <div class="lrow"><span class="m">✕</span><div><b>Сахар и сиропы</b><span>гликация разрушает коллаген</span></div></div>
+      <div class="lrow"><span class="m">✕</span><div><b>Алкоголь</b><span>отёки, тусклый цвет</span></div></div>
+      <div class="lrow"><span class="m">✕</span><div><b>Фастфуд</b><span>воспаления, лишний жир</span></div></div>
+      <div class="lrow"><span class="m">✕</span><div><b>Избыток соли</b><span>мешки под глазами</span></div></div>
     </div>
     <div class="duocard good reveal">
       <h3>Привычки</h3><span class="dn">усилители</span>
-      <div class="lrow"><span class="m">✦</span><div><b>Стакан воды сразу после пробуждения</b><span>запускает метаболизм до кофе</span></div></div>
-      <div class="lrow"><span class="m">✦</span><div><b>Белок в каждом приёме</b><span>сытость, мышцы, структура волос</span></div></div>
-      <div class="lrow"><span class="m">✦</span><div><b>Овощи — половина тарелки</b><span>клетчатка и микронутриенты</span></div></div>
-      <div class="lrow"><span class="m">✦</span><div><b>Ужин за 3 часа до сна</b><span>утром — чистое лицо без отёков</span></div></div>
-      <div class="lrow"><span class="m">✦</span><div><b>Кофе до 14:00</b><span>глубокий сон важнее второй чашки</span></div></div>
+      <div class="lrow"><span class="m">✦</span><div><b>Вода после сна</b><span>запускает метаболизм</span></div></div>
+      <div class="lrow"><span class="m">✦</span><div><b>Белок везде</b><span>сытость, мышцы</span></div></div>
+      <div class="lrow"><span class="m">✦</span><div><b>Овощи</b><span>половина тарелки</span></div></div>
+      <div class="lrow"><span class="m">✦</span><div><b>Ужин рано</b><span>за 3 часа до сна</span></div></div>
     </div>
   </div>
 
   <h3 class="subh reveal">Гидратация сегодня</h3>
   <div class="water reveal">
-    <div class="wtop"><h3>Вода — самый дешёвый биохакинг</h3><span class="wcount" id="wcount">0 / 2000 мл</span></div>
+    <div class="wtop"><h3>Вода — биохакинг</h3><span class="wcount" id="wcount">0 / 2000 мл</span></div>
     <div class="cups" id="cups"></div>
-    <p class="whint">Стакан за стаканом: минус отёчность, плюс упругость кожи. Нажимай, отмечая выпитое.</p>
+    <p class="whint">Нажимай на стакан, отмечая выпитое.</p>
   </div>
 
   <h3 class="subh reveal">Меню дня · шаблон</h3>
   <div class="menu reveal">
-    <div class="mrow"><span class="t">Завтрак</span><span class="d">Овсянка на воде с ягодами и орехами + три яйца в любом виде</span></div>
-    <div class="mrow"><span class="t">Обед</span><span class="d">Лосось или куриная грудка, гречка, большой салат с оливковым маслом</span></div>
-    <div class="mrow"><span class="t">Перекус</span><span class="d">Греческий йогурт, горсть миндаля, яблоко</span></div>
-    <div class="mrow"><span class="t">Ужин</span><span class="d">Белая рыба, зелёные овощи на пару, четверть авокадо</span></div>
+    <div class="mrow"><span class="t">Завтрак</span><span class="d">Овсянка с ягодами + три яйца</span></div>
+    <div class="mrow"><span class="t">Обед</span><span class="d">Лосось или курица, гречка, салат</span></div>
+    <div class="mrow"><span class="t">Перекус</span><span class="d">Йогурт, миндаль, яблоко</span></div>
+    <div class="mrow"><span class="t">Ужин</span><span class="d">Рыба, зелёные овощи, авокадо</span></div>
   </div>
-  <p class="mrule reveal">Правило последней вилки: за три часа до сна — ничего.</p>
+  <p class="mrule reveal">Правило: за три часа до сна — ничего.</p>
 </section>
 
 <!-- ==================== ТРЕНИРОВКИ ==================== -->
@@ -425,10 +367,10 @@ footer{text-align:center;padding:30px 20px 130px;color:var(--dim);font-size:11px
     <span class="chnum">II</span>
     <p class="kicker">Глава II · Тренинг</p>
     <h2>Тело <em>лепит</em> лицо.</h2>
-    <p class="lede">Низкий процент жира точит скулы, осанка визуально добавляет рост, а крепкая шея читается как сила ещё до рукопожатия.</p>
+    <p class="lede">Низкий процент жира точит скулы, осанка добавляет рост, а крепкая шея читается как сила.</p>
   </div>
 
-  <h3 class="subh reveal">Недельный сплит (Верх / Низ)</h3>
+  <h3 class="subh reveal">Недельный сплит</h3>
   <div class="week reveal">
     <div class="dcard" data-day="1"><div class="day">ПН</div><div class="focus">Отдых</div><div class="sub">растяжка · сон · лёгкая активность</div><div class="min">60 мин</div></div>
     <div class="dcard" data-day="2"><div class="day">ВТ</div><div class="focus">Верх: Жим</div><div class="sub">брусья · отжимания · плечи</div><div class="min">60 мин</div></div>
@@ -438,63 +380,32 @@ footer{text-align:center;padding:30px 20px 130px;color:var(--dim);font-size:11px
     <div class="dcard" data-day="6"><div class="day">СБ</div><div class="focus">Низ: сила</div><div class="sub">болгарские приседания · икры</div><div class="min">40 мин</div></div>
     <div class="dcard" data-day="0"><div class="day">ВС</div><div class="focus">Пресс</div><div class="sub">выпады · кор · осанка</div><div class="min">20</div></div>
   </div>
-
   <h3 class="subh reveal">Эстетические приоритеты</h3>
   <div class="feats">
     <div class="feat reveal"><span class="rn">I</span><div>
       <h4>Осанка</h4>
-      <p>Расправленные плечи добавляют рост и уверенность в любом кадре. Пять минут ежедневно — и через месяц разница видна на фото.</p>
-      <p class="ex"><b>Упражнения:</b> chin tucks · face pulls · wall angels</p></div></div>
+      <p>Расправленные плечи добавляют рост и уверенность.</p>
+      <p class="ex"><b>Упражнения:</b> chin tucks · wall angels</p></div></div>
     <div class="feat reveal"><span class="rn">II</span><div>
       <h4>Шея</h4>
-      <p>Крепкая шея — бессознательный маркер силы. Работай плавно, техника важнее веса, без рывков.</p>
-      <p class="ex"><b>Упражнения:</b> сгибания и разгибания 3×15, дважды в неделю</p></div></div>
+      <p>Крепкая шея — маркер силы. Работай плавно.</p>
+      <p class="ex"><b>Упражнения:</b> сгибания 3×15</p></div></div>
     <div class="feat reveal"><span class="rn">III</span><div>
       <h4>V-силуэт</h4>
-      <p>Широкая спина и узкая талия — пропорции античной статуи. Вертикальные тяги и подтягивания решают.</p>
-      <p class="ex"><b>Упражнения:</b> подтягивания · тяга в наклоне · махи гантелей</p></div></div>
-    <div class="feat reveal"><span class="rn">IV</span><div>
-      <h4>Zone 2 и шаги</h4>
-      <p>150 минут лёгкого кардио в неделю сжигают жир, не трогая мышцы. Десять тысяч шагов — скулы ближе, чем кажется.</p>
-      <p class="ex"><b>Формат:</b> быстрая ходьба · велосипед · эллипс, разговорный пульс</p></div></div>
+      <p>Широкая спина и узкая талия — пропорции статуи.</p>
+      <p class="ex"><b>Упражнения:</b> подтягивания</p></div></div>
   </div>
 
   <h3 class="subh reveal">Отметь тренировку</h3>
   <div class="checkcard reveal">
     <h3>Сессия сегодня</h3>
-    <div class="cmeta"><span>ПРОГРЕСС</span><span id="wlabel">0 / 6</span></div>
+    <div class="cmeta"><span>ПРОГРЕСС</span><span id="wlabel">0 / 4</span></div>
     <div class="cbar"><i id="wbar"></i></div>
     <div id="wlist">
-      <button class="chk"><span class="box"></span><span class="txt">Разминка — 5 минут, суставы и пульс</span></button>
-      <button class="chk"><span class="box"></span><span class="txt">База: три упражнения по 3 рабочих подхода</span></button>
-      <button class="chk"><span class="box"></span><span class="txt">Изоляция: добивка на целевую группу</span></button>
-      <button class="chk"><span class="box"></span><span class="txt">Кардио Zone 2 — 20 минут и больше</span></button>
-      <button class="chk"><span class="box"></span><span class="txt">Растяжка и работа с осанкой</span></button>
-      <button class="chk"><span class="box"></span><span class="txt">10 000 шагов за день</span></button>
-    </div>
-  </div>
-
-  <h3 class="subh reveal">Шаги сегодня</h3>
-  <div class="steps reveal">
-    <div class="st-left">
-      <div class="st-num"><b id="stepsVal">0</b><small>из 10 000 шагов</small></div>
-      <div class="st-bar"><i id="stepsBar"></i></div>
-      <div class="st-meta"><span id="stepsKm">≈ 0,0 км</span><span id="stepsPct">0%</span></div>
-      <p class="st-status" id="stStatus">Автоподсчёт выключен</p>
-      <p class="st-note">Автоподсчёт использует акселерометр телефона: включи, положи телефон в карман и иди. Работает на смартфоне по HTTPS; на компьютере датчика обычно нет.</p>
-    </div>
-    <div class="st-right">
-      <button class="sbtn auto" id="autoBtn">▶&nbsp; Автоподсчёт</button>
-      <div class="addrow">
-        <button class="sbtn" data-add="100">+100</button>
-        <button class="sbtn" data-add="500">+500</button>
-        <button class="sbtn" data-add="1000">+1000</button>
-      </div>
-      <div class="steps-custom">
-        <input id="stepsInput" type="number" min="0" max="99999" placeholder="Точное число с трекера">
-        <button class="sbtn" id="stepsSet" style="flex:0 0 64px">OK</button>
-      </div>
-      <button class="sbtn ghost" id="stepsReset">Сбросить день</button>
+      <button class="chk"><span class="box"></span><span class="txt">Разминка — 5 минут</span></button>
+      <button class="chk"><span class="box"></span><span class="txt">База: 4-5 упражнений</span></button>
+      <button class="chk"><span class="box"></span><span class="txt">Растяжка и осанка</span></button>
+      <button class="chk"><span class="box"></span><span class="txt">Тренировка шеи</span></button>
     </div>
   </div>
 </section>
@@ -504,8 +415,8 @@ footer{text-align:center;padding:30px 20px 130px;color:var(--dim);font-size:11px
   <div class="phead reveal">
     <span class="chnum">III</span>
     <p class="kicker">Глава III · Лицо и волосы</p>
-    <h2>Ухоженность — это <em>система</em>, а не случайность.</h2>
-    <p class="lede">Десять минут утром и десять минут вечером. Через девяносто дней такой рутины тебя перестают узнавать на старых фотографиях.</p>
+    <h2>Ухоженность — это <em>система</em>.</h2>
+    <p class="lede">Десять минут утром и десять минут вечером. Через девяносто дней тебя перестанут узнавать на фото.</p>
   </div>
 
   <div class="checkcard reveal" style="margin-bottom:14px">
@@ -516,47 +427,38 @@ footer{text-align:center;padding:30px 20px 130px;color:var(--dim);font-size:11px
       <button data-r="pm">Вечер</button>
     </div>
     <div class="routine on" id="r-am">
-      <div class="step"><span class="n">1</span><div><b>Мягкое умывание</b><span>без агрессивных ПАВ — кожа не должна скрипеть</span></div></div>
-      <div class="step"><span class="n">2</span><div><b>Витамин C</b><span>сыворотка: сияние, ровный тон, защита от свободных радикалов</span></div></div>
-      <div class="step"><span class="n">3</span><div><b>Увлажнение</b><span>лёгкий крем или гель по типу кожи</span></div></div>
-      <div class="step"><span class="n">4</span><div><b>SPF 50</b><span>главный антивозрастной продукт в истории. Каждый день.</span></div></div>
+      <div class="step"><span class="n">1</span><div><b>Мягкое умывание</b><span>без скрипа</span></div></div>
+      <div class="step"><span class="n">2</span><div><b>Витамин C</b><span>сияние и тон</span></div></div>
+      <div class="step"><span class="n">3</span><div><b>Увлажнение</b><span>гель или крем</span></div></div>
+      <div class="step"><span class="n">4</span><div><b>SPF 50</b><span>главный антивозрастной крем</span></div></div>
     </div>
     <div class="routine" id="r-pm">
-      <div class="step"><span class="n">1</span><div><b>Умывание</b><span>смыть SPF, городскую пыль и себум — двойное очищение при необходимости</span></div></div>
-      <div class="step"><span class="n">2</span><div><b>Актив</b><span>ниацинамид ежедневно или ретинол 2–3 вечера в неделю</span></div></div>
-      <div class="step"><span class="n">3</span><div><b>Увлажнение + зона вокруг глаз</b><span>ночью кожа восстанавливается — дай ей ресурс</span></div></div>
-      <div class="step"><span class="n">4</span><div><b>Гигиена сна</b><span>чистая наволочка, в идеале сон на спине — меньше заломов</span></div></div>
+      <div class="step"><span class="n">1</span><div><b>Умывание</b><span>смыть SPF и пыль</span></div></div>
+      <div class="step"><span class="n">2</span><div><b>Актив</b><span>ниацинамид или ретинол</span></div></div>
+      <div class="step"><span class="n">3</span><div><b>Увлажнение</b><span>ночное восстановление</span></div></div>
+      <div class="step"><span class="n">4</span><div><b>Гигиена сна</b><span>чистая наволочка</span></div></div>
     </div>
   </div>
 
   <h3 class="subh reveal">Практики для лица</h3>
   <div class="practs">
-    <div class="pract reveal"><h4>Мьюинг</h4><p>Язык полностью прижат к нёбу, губы сомкнуты, дыхание только носом. Держи это положение всегда, не только «на тренировке». За месяцы линия подбородка становится заметно чётче.</p></div>
-    <div class="pract reveal"><h4>Гуаша и самомассаж</h4><p>Пять минут утром по массажным линиям, снизу вверх и от центра к вискам. Лимфодренаж убирает ночную одутловатость и подчёркивает скулы.</p></div>
-    <div class="pract reveal"><h4>Меньше соли — меньше отёков</h4><p>Лёгкий ужин без солёного и стакан воды до 20:00 — утром чистые глаза и точёный овал. Алкоголь отменяет всё.</p></div>
-    <div class="pract reveal"><h4>Брови</h4><p>Форма раз в две-три недели: у мастера или по естественной линии. Пинцетом убирай только лишнее снизу и на переносице — густота сверху остаётся.</p></div>
+    <div class="pract reveal"><h4>Мьюинг</h4><p>Язык прижат к нёбу, дыхание носом. Держи всегда.</p></div>
+    <div class="pract reveal"><h4>Гуаша</h4><p>Пять минут утром снизу вверх. Лимфодренаж убирает отёки.</p></div>
+    <div class="pract reveal"><h4>Меньше соли</h4><p>Лёгкий ужин без солёного — утром чистое лицо.</p></div>
+    <div class="pract reveal"><h4>Брови</h4><p>Убирай лишнее снизу и на переносице. Густота сверху остаётся.</p></div>
   </div>
 
-  <h3 class="subh reveal">Волосы — рамка лица</h3>
+  <h3 class="subh reveal">Волосы</h3>
   <div class="hgrid">
     <div class="food hair big reveal"><span class="ftag">ЕЖЕДНЕВНО</span>
-      <div class="fname">Массаж кожи головы</div>
-      <p class="fdesc">Четыре-пять минут в день подушечками пальцев — усиливают кровоток к фолликулам. Самая недооценённая привычка для густоты: бесплатно и работает на дистанции.</p></div>
+      <div class="fname">Массаж головы</div>
+      <p class="fdesc">4-5 минут пальцами. Усиливает кровоток к фолликулам.</p></div>
     <div class="food hair reveal"><span class="ftag">МЫТЬЁ</span>
-      <div class="fname">Шампунь по типу кожи</div>
-      <p class="fdesc">Мягкий шампунь — на корни, кондиционер — только на длину. Горячую воду убавь.</p></div>
+      <div class="fname">Шампунь</div>
+      <p class="fdesc">Мягкий шампунь на корни, кондиционер на длину.</p></div>
     <div class="food hair reveal"><span class="ftag">КУРС</span>
       <div class="fname">Масло розмарина</div>
-      <p class="fdesc">2–3 раза в неделю в кожу головы перед мытьём. В исследованиях показывает эффект роста. Курс — минимум три месяца.</p></div>
-    <div class="food hair reveal"><span class="ftag">БЛЕСК</span>
-      <div class="fname">Холодное ополаскивание</div>
-      <p class="fdesc">Прохладная вода в конце мытья закрывает кутикулу — волосы блестят и меньше пушатся.</p></div>
-    <div class="food hair reveal"><span class="ftag">ИЗНУТРИ</span>
-      <div class="fname">Строительный материал</div>
-      <p class="fdesc">Белок, биотин, цинк и железо. Волосы первыми страдают от дефицитов и диеты «на кофе».</p></div>
-    <div class="food hair reveal"><span class="ftag">ЕСЛИ ТРЕВОЖИТ</span>
-      <div class="fname">Трихолог, а не догадки</div>
-      <p class="fdesc">Заметное выпадение — повод сдать анализы и пойти к специалисту. В вопросах волос ранняя стратегия решает всё.</p></div>
+      <p class="fdesc">2–3 раза в неделю перед мытьём. Курс — 3 месяца.</p></div>
   </div>
 </section>
 
@@ -566,7 +468,7 @@ footer{text-align:center;padding:30px 20px 130px;color:var(--dim);font-size:11px
     <span class="chnum">IV</span>
     <p class="kicker">Глава IV · Полезные советы</p>
     <h2>Кодекс <em>восхождения</em>.</h2>
-    <p class="lede">Внешность — это верхушка айсберга. Под ней: сон, дисциплина и привычки, которые никто не видит, но все считывают.</p>
+    <p class="lede">Внешность — это верхушка айсберга. Под ней: сон, дисциплина и привычки.</p>
   </div>
 
   <h3 class="subh reveal">Ритуал дня</h3>
@@ -577,35 +479,29 @@ footer{text-align:center;padding:30px 20px 130px;color:var(--dim);font-size:11px
         <div class="rpct"><span id="rpct">0%</span><small>уровень дня</small></div>
       </div>
       <div id="hlist">
-        <button class="chk"><span class="box"></span><span class="txt">Отбой до 22:00, подъём по графику</span></button>
-        <button class="chk"><span class="box"></span><span class="txt">Два литра воды и больше</span></button>
+        <button class="chk"><span class="box"></span><span class="txt">Отбой до 22:00</span></button>
+        <button class="chk"><span class="box"></span><span class="txt">Два литра воды</span></button>
         <button class="chk"><span class="box"></span><span class="txt">Утренний уход + SPF</span></button>
         <button class="chk"><span class="box"></span><span class="txt">Вечерний уход</span></button>
-        <button class="chk"><span class="box"></span><span class="txt">Тренировка или 10 000 шагов</span></button>
-        <button class="chk"><span class="box"></span><span class="txt">День без сахара и фастфуда</span></button>
-        <button class="chk"><span class="box"></span><span class="txt">Час до сна — без ленты и экранов</span></button>
+        <button class="chk"><span class="box"></span><span class="txt">Тренировка или активность</span></button>
+        <button class="chk"><span class="box"></span><span class="txt">День без сахара</span></button>
+        <button class="chk"><span class="box"></span><span class="txt">Час без экрана перед сном</span></button>
       </div>
     </div>
   </div>
 
   <h3 class="subh reveal">Принципы</h3>
   <div id="acclist">
-    <div class="acc reveal"><button class="acc-q">Сон — главный анаболик <span class="pl">+</span></button>
-      <div class="acc-a"><p>Семь-девять часов, отбой и подъём в одно время даже в выходные, полная темнота и прохлада. Гормон роста и восстановление кожи работают ночью — ни один крем этого не заменит.</p></div></div>
+    <div class="acc reveal"><button class="acc-q">Сон — анаболик <span class="pl">+</span></button>
+      <div class="acc-a"><p>Семь-девять часов, полная темнота. Гормон роста работает ночью.</p></div></div>
     <div class="acc reveal"><button class="acc-q">SPF каждый день <span class="pl">+</span></button>
-      <div class="acc-a"><p>Зимой, в пасмурную погоду, в офисе у окна. Фотостарение отвечает за большую часть видимых морщин и пигментации. Солнцезащита — самая выгодная инвестиция в лицо.</p></div></div>
-    <div class="acc reveal"><button class="acc-q">Телефон — на уровень глаз <span class="pl">+</span></button>
-      <div class="acc-a"><p>Часы, проведённые с опущенной головой, формируют «компьютерную шею» и визуальный второй подбородок. Поднимай устройство, а не опускай голову.</p></div></div>
-    <div class="acc reveal"><button class="acc-q">Ноль алкоголя и дыма <span class="pl">+</span></button>
-      <div class="acc-a"><p>Отёки, купероз, серый цвет лица, поредевшие волосы и рваный сон. Ничто так не старит в двадцать с лишним, как привычка «по пятницам».</p></div></div>
-    <div class="acc reveal"><button class="acc-q">Груминг до мелочей <span class="pl">+</span></button>
-      <div class="acc-a"><p>Чистые ногти и ухоженные руки, форма бровей, стрижка раз в три-четыре недели, аккуратная борода или идеально чистое бритьё. Детали считываются за секунду.</p></div></div>
-    <div class="acc reveal"><button class="acc-q">Посадка важнее бренда <span class="pl">+</span></button>
-      <div class="acc-a"><p>Базовые цвета, вещи по фигуре, чистая обувь. Одна вещь, сидящая идеально, выглядит дороже десяти логотипов. Портной — твой лучший стилист.</p></div></div>
-    <div class="acc reveal"><button class="acc-q">Взгляд, голос, пауза <span class="pl">+</span></button>
-      <div class="acc-a"><p>Говори чуть медленнее, держи спокойный зрительный контакт, дыши носом. Уверенность — это тоже внешность, и её прокачка быстрее любых процедур.</p></div></div>
-    <div class="acc reveal"><button class="acc-q">Цифровая гигиена <span class="pl">+</span></button>
-      <div class="acc-a"><p>Меньше ленты — меньше кортизола и бесконечного сравнения себя с другими. Сравнивай себя только с собой вчерашним: это единственный честный соперник.</p></div></div>
+      <div class="acc-a"><p>Зимой и в пасмурную погоду. Солнцезащита — инвестиция в лицо.</p></div></div>
+    <div class="acc reveal"><button class="acc-q">Телефон выше <span class="pl">+</span></button>
+      <div class="acc-a"><p>Поднимай устройство, а не опускай голову. Береги шею.</p></div></div>
+    <div class="acc reveal"><button class="acc-q">Ноль алкоголя <span class="pl">+</span></button>
+      <div class="acc-a"><p>Отёки, купероз и серый цвет лица. Ничто так не старит.</p></div></div>
+    <div class="acc reveal"><button class="acc-q">Груминг <span class="pl">+</span></button>
+      <div class="acc-a"><p>Чистые ногти, форма бровей, свежая стрижка. Детали решают.</p></div></div>
   </div>
 
   <div class="quote reveal" id="quote">
@@ -618,7 +514,7 @@ footer{text-align:center;padding:30px 20px 130px;color:var(--dim);font-size:11px
 
 </main>
 
-<p class="disclaimer">Материалы носят информационный характер и не являются медицинской рекомендацией.</p>
+<p class="disclaimer">Материалы носят информационный характер.</p>
 <footer>✦ &nbsp;ВОСХОД · дисциплина — это свобода&nbsp; ✦</footer>
 </div>
 
@@ -632,7 +528,7 @@ footer{text-align:center;padding:30px 20px 130px;color:var(--dim);font-size:11px
     <span>Тренировки</span></button>
   <button class="dockbtn" data-tab="tab-face">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4.5 11.5a7.5 7.5 0 0 1 15 0"/><circle cx="12" cy="13" r="6.5"/><path d="M9.6 15.4c1.5 1.2 3.3 1.2 4.8 0"/><circle cx="9.8" cy="12.4" r=".5" fill="currentColor" stroke="none"/><circle cx="14.2" cy="12.4" r=".5" fill="currentColor" stroke="none"/></svg>
-    <span>Лицо и волосы</span></button>
+    <span>Лицо</span></button>
   <button class="dockbtn" data-tab="tab-tips">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 1 3.7 10.7c-.8.6-1.2 1.4-1.2 2.3h-5c0-.9-.4-1.7-1.2-2.3A6 6 0 0 1 12 3z"/><path d="M9.5 19h5M10.5 21.5h3"/></svg>
     <span>Советы</span></button>
@@ -699,7 +595,7 @@ function toast(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show'
 const cupsBox=$('#cups'), N=8;
 let w=store.get('lx_water',{d:'',n:0}); if(w.d!==todayKey())w={d:todayKey(),n:0};
 for(let i=0;i<N;i++){
-  const c=document.createElement('button');c.className='cup';c.title='Стакан '+(i+1)+' · 250 мл';
+  const c=document.createElement('button');c.className='cup';c.title='Стакан '+(i+1);
   c.innerHTML='<span class="fill"></span>';
   c.addEventListener('click',()=>{
     w.n=(i===w.n-1)?i:i+1; w.d=todayKey(); store.set('lx_water',w); renderWater();
@@ -755,80 +651,6 @@ hList.forEach((el,i)=>el.addEventListener('click',()=>{
   if(c>=5&&streak.last!==todayKey())bumpStreak();
 }));
 renderHabits();
-
-/* ---------- ШАГИ ---------- */
-const GOAL=10000;
-let st=store.get('lx_steps',{d:'',n:0}); if(st.d!==todayKey())st={d:todayKey(),n:0};
-function renderSteps(){
-  $('#stepsVal').textContent=st.n.toLocaleString('ru-RU');
-  $('#stepsBar').style.width=Math.min(st.n/GOAL*100,100)+'%';
-  $('#stepsPct').textContent=Math.round(Math.min(st.n/GOAL,9.99)*100)+'%';
-  $('#stepsKm').textContent='≈ '+(st.n*0.00075).toLocaleString('ru-RU',{maximumFractionDigits:1})+' км';
-}
-function setSteps(v){
-  const was=st.n; st.n=Math.max(0,Math.round(v)); st.d=todayKey(); store.set('lx_steps',st); renderSteps();
-  if(was<GOAL&&st.n>=GOAL){
-    toast('10 000 ШАГОВ ✦ ЦЕЛЬ ДОСТИГНУТА');
-    if(!ws.s[5]){ws.s[5]=true;store.set('lx_work',ws);renderWork();}
-  }
-}
-$$('#tab-work [data-add]').forEach(b=>b.addEventListener('click',()=>setSteps(st.n+ +b.dataset.add)));
-$('#stepsSet').addEventListener('click',()=>{
-  const v=parseInt($('#stepsInput').value,10);
-  if(!isNaN(v)&&v>=0){setSteps(v);$('#stepsInput').value='';}
-});
-$('#stepsInput').addEventListener('keydown',e=>{if(e.key==='Enter')$('#stepsSet').click()});
-$('#stepsReset').addEventListener('click',()=>setSteps(0));
-renderSteps();
-
-/* ---------- АВТОПОДСЧЁТ ШАГОВ (акселерометр) ---------- */
-let autoOn=false, ema=null, peak=false, lastStepT=0, motionSeen=false, watchT;
-const autoBtn=$('#autoBtn'), stStatus=$('#stStatus');
-function onMotion(e){
-  const a=e.accelerationIncludingGravity;
-  if(!a||a.x===null||a.y===null||a.z===null)return;
-  motionSeen=true;
-  const mag=Math.sqrt(a.x*a.x+a.y*a.y+a.z*a.z);
-  ema=(ema===null)?mag:ema*0.85+mag*0.15;
-  const delta=mag-ema;
-  const now=performance.now();
-  if(!peak&&delta>2.6&&now-lastStepT>320){
-    peak=true; lastStepT=now; setSteps(st.n+1);
-  }
-  if(peak&&delta<1.2)peak=false;
-}
-async function startAuto(){
-  if(typeof DeviceMotionEvent==='undefined'){toast('ДАТЧИК НЕДОСТУПЕН В ЭТОМ БРАУЗЕРЕ');return}
-  if(typeof DeviceMotionEvent.requestPermission==='function'){
-    try{
-      const r=await DeviceMotionEvent.requestPermission();
-      if(r!=='granted'){toast('ДОСТУП К ДАТЧИКУ ОТКЛОНЁН');return}
-    }catch(err){toast('ДОСТУП К ДАТЧИКУ ОТКЛОНЁН');return}
-  }
-  motionSeen=false; ema=null; peak=false;
-  window.addEventListener('devicemotion',onMotion);
-  autoOn=true; autoBtn.classList.add('on');
-  autoBtn.innerHTML='●&nbsp; Идёт подсчёт…';
-  stStatus.textContent='Слушаю акселерометр…';
-  stStatus.classList.add('live');
-  watchT=setTimeout(()=>{
-    if(!motionSeen){
-      stopAuto();
-      toast('ДАТЧИК НЕ ОТВЕЧАЕТ — ИСПОЛЬЗУЙ РУЧНОЙ ВВОД');
-    }else{
-      stStatus.textContent='Автоподсчёт активен · держи телефон в кармане или руке';
-    }
-  },2500);
-}
-function stopAuto(){
-  autoOn=false; clearTimeout(watchT);
-  window.removeEventListener('devicemotion',onMotion);
-  autoBtn.classList.remove('on');
-  autoBtn.innerHTML='▶&nbsp; Автоподсчёт';
-  stStatus.textContent='Автоподсчёт выключен';
-  stStatus.classList.remove('live');
-}
-autoBtn.addEventListener('click',()=>autoOn?stopAuto():startAuto());
 
 /* ---------- УТРО / ВЕЧЕР ---------- */
 const seg=$('#seg'), sBtns=$$('#seg button');
